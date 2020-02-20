@@ -1,0 +1,29 @@
+# Install Docker on Ubuntu 18.04
+
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt update
+sudo apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+
+# Build Ubuntu Image based on Dockerfile
+cd docker
+sudo docker build -t neoprospect_test .
+
+# Inspect image created
+sudo docker image inspect neoprospect_test
+
+# Run Image created
+sudo docker run -i -t neoprospect_test /bin/bash
+
+# Push Image to Docker Hub
+sudo docker images
+sudo docker tag 1e1c547a4231 vinibfranc/neoprospect_test:latest
+sudo docker login
+sudo docker push vinibfranc/meta_neuromics
+
+# Pull Image
+sudo docker pull vinibfranc/meta_neuromics

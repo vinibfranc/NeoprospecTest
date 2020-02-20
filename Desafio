@@ -1,0 +1,61 @@
+#################################################
+# Descrição dos dados de sequenciamento enviado
+#################################################
+
+1) Quais os objetivos do estudo?
+1.1) Estes dados foram gerados com o intuito de compreender a variação da microbiota intestinal natural em resposta ao estado de saúde do hospedeiro;
+
+1.2) Foram coletadas fezes frescas de camundongos durante 365 dias após a data do desmame. Foi realizado um sequenciamento de larga escala (MiSeq), usando primers do gene 16S rRNA para a região V4;
+
+1.3) Durante os primeiros 150 dias após o desmame (dwp), nada foi feito com os camundongos, exceto permitir que se alimentassem, engordassem e se divertissem. Nos primeiros 10 dwp, observou-se um aumento brusco no peso dos camundongos, o que gerou dúvidas se a microbiota desses 10 dwp era diferente daquela observada entre os dias 140 e 150;
+
+1.4) O arquivo metadata.csv oferecido neste desafio, contém a relação entre os arquivos fastq's (que estão no diretório fqs) e a idade de desmame dos camundongos. Os dados são parciais, muitos dos arquivos foram omitidos a fim de facilitar a execução dos desafios.
+
+1.5) Junto dos dados a processar é disponibilizado um pequeno banco de sequências de referência FASTA (fasta_file.fasta) que contém sequências de bactérias com definição a nível de espécie.
+
+1.6) Como dois dos três desafios dependem das análises dos dados descritos nos subitens 1.1 à 1.5, caso o candidato precise, estamos disponibilizamos uma OTU table e uma Tax table que podem ser usadas nos desafios subsequentes que dependeriam destes arquivos. Os arquivos estão dentro do diretório tables: otu_table_tax_amostras.tsv e tax_table_amostras.tsv.
+
+
+#############
+# OS DESAFIOS
+#############
+
+# Os desafios serão divididos em três frentes, a saber: 1) Competência básica para bioinformática, 2) Competência básica para análise de dados e 3) Competência básica para uso de Django. Cada uma das competências será avaliada de forma separada, sendo que as mesmas foram pensadas para melhor avaliar o perfil do candidato frente a nossas demandas. 
+Não é necessário completar todos os desafios, apenas aqueles que se sentir mais confortável para resolver (motivo pelo qual enviamos os dados 'resolvidos' para caso deseje 'pular' uma etapa).
+Os scripts devem ser construídos em Python e/ou R (especificar versões utilizadas).
+Todos os scripts devem ser disponibilizados junto da resolução do teste, comitados no GitHub. A avaliação do script será tão ou mais importante quanto os resultados em si.
+
+1) Competência básica para bioinformática: o objetivo deste desafio será o de gerar um script (recomendado utilizar a linguagem Python) que contemple os seguintes steps:
+1.1) Efetuar trimagem dos dados, por qualidade, usando algum trimador de sua preferência;
+
+1.2) Gerar reports da qualidade PHRED antes e após trimagem dos dados;
+
+1.3) Fazer identificação taxonômicas das sequências que passaram pelo filtro de qualidade usando um banco de referência e um programa de sua escolha;
+
+1.4) Gerar uma OTU table, onde as linhas serão taxonomias e as colunas os nomes das amostras. A intersecção de colunas e linhas devem mostrar as contagens da taxonomia na amostra;
+
+1.5) Estes steps devem estar em um container Docker, onde o código deve ser comitado em uma conta do GitHub. Construa o requirements.txt e demais instruções para instalação e execução automática do pipeline. 
+
+
+
+2) Competência básica para análise de dados: o objetivo deste desafio será o de gerar análises gráficas (descritivas e estatísticas) a partir de dados de sequenciamento (recomendado utilizar a linguagem R).
+2.1) Plotar um gráfico de barras que mostre a contagem absoluta das 50 bactérias mais abundantes, agrupadas por tempo (dia após o desmame);
+
+2.2) Plotar um gráfico de PCoA mostrando o perfil de agrupamento entre as amostras por dia após o desmame;
+
+2.3) Usar alguma métrica que mostre as bactérias diferencialmente abundantes entre os dias de desmame (edegR ou DESeq2, por exemplo). Em um arquivo (PDF, HTML, DOC ou similar), descreva os resultados obtidos e explique quais foram os critérios de escolha dos métodos analíticos usados.
+
+
+
+3) Competência básica para uso de Django: a partir da OTU table (seja gerada pela etapa anterior ou usando a disponibilizada no diretório tables), use o framework Django para exibir o conteúdo desta tabela. Este projeto deve ser disponibilizado no GitHub.
+3.1) Construa um app (com requirements.txt) que deverá ter usuário (permissões de admin) neoprospecta e senha neopct1234;
+
+3.2) Construa uma View para exibir todas as colunas da OTU table, que possa ser ordenada tanto pelo nome do táxon quanto pela frequência;
+
+3.3) Construa uma lógica para que seja exibido o conteúdo da tabela apenas para usuários logados, usuários não logados devem receber esta mensagem: "Área restrita para uso dos colaboradores. Por favor, faça o login ou converse com o administrador do site.";
+
+3.4) Commit o projeto no git e construa um README, com instruções de como executar o app localmente.
+
+
+Caso não seja possível realizar algum dos subitens, não há problema em resolver uma frente parcialmente (exemplos: realizar os primeiros 4 subitens da competência de bioinformática, sem criar o Docker do script; ou plotar o gráfico de barras e realizar a análise de abundância diferencial usando R, mas não plotar o gráfico de PCoA, na análise de dados). 
+
