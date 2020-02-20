@@ -23,7 +23,7 @@ sudo docker run -i -t neoprospect_test /bin/bash
 sudo docker images
 sudo docker tag 1e1c547a4231 vinibfranc/neoprospect_test:latest
 sudo docker login
-sudo docker push vinibfranc/meta_neuromics
+sudo docker push vinibfranc/neoprospect_test
 
 # Pull Image
-sudo docker pull vinibfranc/meta_neuromics
+sudo docker pull vinibfranc/neoprospect_test
