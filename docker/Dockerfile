@@ -72,6 +72,15 @@ RUN curl -fsSL https://github.com/FelixKrueger/TrimGalore/archive/0.6.0.tar.gz -
 	echo 'PATH=$PATH:'$(pwd) >> ~/.bashrc && \
 	cd ..
 
+# conda installation
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+	sh Miniconda3-latest-Linux-x86_64.sh && conda update conda && conda install wget
+
+# QIIME2 installation
+RUN wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml && \
+	conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml && \
+	conda install --override-channels -c defaults scikit-learn=0.21.2
+
 RUN . ~/.bashrc
 
 WORKDIR /home/neo/test/NeoprospecTest

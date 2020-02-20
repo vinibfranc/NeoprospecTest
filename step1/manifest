@@ -1,0 +1,21 @@
+# single-end PHRED 33 fastq manifest file for forward reads
+sample-id	absolute-filepath
+F3D000	$PWD/../fqs/fqs_trimmados/F3D000_S188_L001_R1_001_trimmed.fq
+F3D001	$PWD/../fqs/fqs_trimmados/F3D001_S189_L001_R1_001_trimmed.fq
+F3D002	$PWD/../fqs/fqs_trimmados/F3D002_S190_L001_R1_001_trimmed.fq
+F3D003	$PWD/../fqs/fqs_trimmados/F3D003_S191_L001_R1_001_trimmed.fq
+F3D005	$PWD/../fqs/fqs_trimmados/F3D005_S193_L001_R1_001_trimmed.fq
+F3D006	$PWD/../fqs/fqs_trimmados/F3D006_S194_L001_R1_001_trimmed.fq
+F3D007	$PWD/../fqs/fqs_trimmados/F3D007_S195_L001_R1_001_trimmed.fq
+F3D008	$PWD/../fqs/fqs_trimmados/F3D008_S196_L001_R1_001_trimmed.fq
+F3D009	$PWD/../fqs/fqs_trimmados/F3D009_S197_L001_R1_001_trimmed.fq
+F3D141	$PWD/../fqs/fqs_trimmados/F3D141_S207_L001_R1_001_trimmed.fq
+F3D142	$PWD/../fqs/fqs_trimmados/F3D142_S208_L001_R1_001_trimmed.fq
+F3D143	$PWD/../fqs/fqs_trimmados/F3D143_S209_L001_R1_001_trimmed.fq
+F3D144	$PWD/../fqs/fqs_trimmados/F3D144_S210_L001_R1_001_trimmed.fq
+F3D145	$PWD/../fqs/fqs_trimmados/F3D145_S211_L001_R1_001_trimmed.fq
+F3D146	$PWD/../fqs/fqs_trimmados/F3D146_S212_L001_R1_001_trimmed.fq
+F3D147	$PWD/../fqs/fqs_trimmados/F3D147_S213_L001_R1_001_trimmed.fq
+F3D148	$PWD/../fqs/fqs_trimmados/F3D148_S214_L001_R1_001_trimmed.fq
+F3D149	$PWD/../fqs/fqs_trimmados/F3D149_S215_L001_R1_001_trimmed.fq
+F3D150	$PWD/../fqs/fqs_trimmados/F3D150_S216_L001_R1_001_trimmed.fq
