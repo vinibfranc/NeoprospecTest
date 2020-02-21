@@ -89,23 +89,7 @@ qiime tools export \
   --input-path ../results/taxonomy.qza \
   --output-path ../results/my_tables/
 
-echo "Converte arquivo biom para tsv... Ainda sem taxonomias!"
+echo "Converte arquivo biom para tsv..."
 biom convert -i ../results/my_tables/feature-table.biom -o ../results/my_tables/table.tsv --to-tsv
 
-# Modificar cabeçalho do arquivo taxonomy.tsv antes de rodar:
-# Novo cabeçalho: #OTUID taxonomy	confidence 
-# biom add-metadata -i ../results/my_tables/feature-table.biom -o ../results/my_tables/table_w_taxonomy.biom --observation-metadata-fp ../results/my_tables/taxonomy_orig.tsv --observation-header OTUID,taxonomy,confidence
-
-# biom convert -i ../results/my_tables/table_w_taxonomy.biom -o ../results/my_tables/table_w_taxonomy.tsv --to-tsv
-
-# Atribui nomes científicos das espécies
-# qiime taxa collapse \
-#   --i-table ../fqs/table.qza \
-#   --i-taxonomy ../results/taxonomy.qza \
-#   --p-level 6 \
-#   --o-collapsed-table ../results/feature-table-genus.qza
-
-# qiime metadata tabulate \
-#   --m-input-file ../results/taxonomy.qza \
-#   --o-visualization ../results/taxonomy_2.qzv
 biom convert -i ../tables/otu_table_tax_amostras.tsv -o ../tables/converted_table.biom --to-hdf5

@@ -11,19 +11,19 @@ sudo systemctl status docker
 
 # Build Ubuntu Image based on Dockerfile
 cd docker
-sudo docker build -t neoprospect_test .
+sudo docker build -t neoprospecta .
 
 # Inspect image created
-sudo docker image inspect neoprospect_test
+sudo docker image inspect neoprospecta
 
 # Run Image created
-sudo docker run -i -t neoprospect_test /bin/bash
+sudo docker run -i -t neoprospect /bin/bash
 
 # Push Image to Docker Hub
 sudo docker images
-sudo docker tag 1e1c547a4231 vinibfranc/neoprospect_test:latest
+sudo docker tag 1e1c547a4231 vinibfranc/neoprospect:latest
 sudo docker login
-sudo docker push vinibfranc/neoprospect_test
+sudo docker push vinibfranc/neoprospecta
 
 # Pull Image
-sudo docker pull vinibfranc/neoprospect_test
+sudo docker pull vinibfranc/neoprospecta
