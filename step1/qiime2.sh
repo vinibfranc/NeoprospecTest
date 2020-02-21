@@ -89,19 +89,22 @@ qiime tools export \
   --input-path ../results/taxonomy.qza \
   --output-path ../results/my_tables/
 
-# Atribui nomes científicos das espécies
-# qiime taxa collapse \
-#   --i-table ../fqs/table.qza \
-#   --i-taxonomy ../results/taxonomy.qza \
-#   --p-level 7 \
-#   --output-dir ../results/my_tables/readable
-
 echo "Converte arquivo biom para tsv... Ainda sem taxonomias!"
 biom convert -i ../results/my_tables/feature-table.biom -o ../results/my_tables/table.tsv --to-tsv
 
 # Modificar cabeçalho do arquivo taxonomy.tsv antes de rodar:
 # Novo cabeçalho: #OTUID taxonomy	confidence 
-biom add-metadata -i ../results/my_tables/feature-table.biom -o ../results/my_tables/table-with-taxonomy.biom --observation-metadata-fp ../results/my_tables/taxonomy.tsv #--sc-separated taxonomy
+# biom add-metadata -i ../results/my_tables/feature-table.biom -o ../results/my_tables/table_w_taxonomy.biom --observation-metadata-fp ../results/my_tables/taxonomy_orig.tsv --observation-header OTUID,taxonomy,confidence
 
-echo "Converte arquivo biom para tsv (table-final.tsv)... Agora com taxonomias!"
-biom convert -i ../results/my_tables/table-with-taxonomy.biom -o ../results/my_tables/table-final.tsv --to-tsv
+# biom convert -i ../results/my_tables/table_w_taxonomy.biom -o ../results/my_tables/table_w_taxonomy.tsv --to-tsv
+
+# Atribui nomes científicos das espécies
+# qiime taxa collapse \
+#   --i-table ../fqs/table.qza \
+#   --i-taxonomy ../results/taxonomy.qza \
+#   --p-level 6 \
+#   --o-collapsed-table ../results/feature-table-genus.qza
+
+# qiime metadata tabulate \
+#   --m-input-file ../results/taxonomy.qza \
+#   --o-visualization ../results/taxonomy_2.qzv

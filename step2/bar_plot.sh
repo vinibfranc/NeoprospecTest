@@ -6,6 +6,7 @@ set -o pipefail
 ### Esse script realiza as etapas 2.1 ###
 
 # Para gerar o gráfico de barras com as bactérias mais abundantes podemos utilizar o QIIME 2
+# Plot feito com os dados gerados por mim
 echo "Gerando gráfico de barras"
 qiime taxa barplot \
   --i-table ../fqs/table.qza \

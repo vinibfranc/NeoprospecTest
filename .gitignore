@@ -1,6 +1,13 @@
+# Resultados dos scripts
 fqs/fqs_trimmados/
 fqs/report_antes/
 fqs/report_depois/
 tools/
 my_ref_db/
 results/
+
+# Arquivos do R
+.Rproj.user
+.RData
+.Rhistory
+step2.Rproj
