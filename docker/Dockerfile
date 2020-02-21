@@ -48,7 +48,7 @@ CMD ["/bin/bash"]
 
 RUN apt-get update && apt-get -y --fix-missing install git build-essential ncbi-blast+ gcc \ 
 			software-properties-common curl wget zip unzip make nano \
-			python3 python3-pip fastqc cutadapt pigz
+			python3 python3-pip fastqc cutadapt pigz libmagick++-dev
 
 RUN useradd -ms /bin/bash neo
 

@@ -108,3 +108,4 @@ biom convert -i ../results/my_tables/feature-table.biom -o ../results/my_tables/
 # qiime metadata tabulate \
 #   --m-input-file ../results/taxonomy.qza \
 #   --o-visualization ../results/taxonomy_2.qzv
+biom convert -i ../tables/otu_table_tax_amostras.tsv -o ../tables/converted_table.biom --to-hdf5
