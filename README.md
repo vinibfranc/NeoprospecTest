@@ -1,5 +1,6 @@
 # NeoprospecTest
-Teste para vaga na Neoprospecta, incluindo etapas de bioinformática e análise de dados sobre dados de sequenciamento 16s.
+
+Esse projeto é um teste para vaga na Neoprospecta, incluindo etapas de bioinformática e análise de dados de sequenciamento do marcador de bactérias 16s em amostras de fezes de camundongos, objetivando investigar as variações na microbiota intestinal em diferentes dias após o desmame dos animais.
 
 ## Sobre o conjunto de dados
 
@@ -118,3 +119,9 @@ Todos estes arquivos gerados pelo script foram salvos, assim como relatório sol
 ### 3) Integração e visualização com o Django
 
 Essa etapa foi realizada no repositório https://github.com/vinibfranc/DjangOTU.
+
+## Autor
+
+Desenvolvido por [Vinícius Franceschi](https://vinibfranc.github.io/) - Bacharel em Informática Biomédica (UFCSPA).
+
+Dúvidas, problemas encontrados ou sugestões de melhorias podem ser enviadas para: vinibfranc@gmail.com
