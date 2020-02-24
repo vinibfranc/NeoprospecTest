@@ -90,10 +90,9 @@ ds <- DESeq(ds)
 alpha <- 0.01
 res <- results(ds, contrast=c("time", "Early", "Late"), alpha=alpha)
 res <- res[order(res$padj, na.last=NA), ]
-res_sig <- res[(res$padj < alpha), ]
 res_sig
 # Obtem somente aqueles com p-value ajustado < 0.1
-sum(res_sig$padj < 0.1, na.rm=TRUE)
+res_sig <- res[(res$padj < alpha), ]
 res_sig <- subset(res_sig, padj < 0.1)
 # Ordena por log2FoldChange
 res_ordered <- res_sig[order(res_sig$log2FoldChange),]

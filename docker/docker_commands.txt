@@ -1,4 +1,4 @@
-# Install Docker on Ubuntu 18.04
+# Instala Docker on Ubuntu 18.04
 
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -9,21 +9,21 @@ sudo apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo systemctl status docker
 
-# Build Ubuntu Image based on Dockerfile
+# Dá build na imagem do Ubuntu baseado no Dockerfile
 cd docker
 sudo docker build -t neoprospecta .
 
-# Inspect image created
+# Inspeciona a imagem criada
 sudo docker image inspect neoprospecta
 
-# Run Image created
-sudo docker run -i -t neoprospect /bin/bash
+# Roda a imagem criada
+sudo docker run -i -t neoprospecta /bin/bash
 
-# Push Image to Docker Hub
+# Dá push na imagem para o Docker Hub
 sudo docker images
 sudo docker tag 1e1c547a4231 vinibfranc/neoprospect:latest
 sudo docker login
 sudo docker push vinibfranc/neoprospecta
 
-# Pull Image
+# Faz pull da imagem
 sudo docker pull vinibfranc/neoprospecta
