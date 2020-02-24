@@ -21,7 +21,7 @@ sudo docker run -i -t neoprospecta /bin/bash
 
 # Dá push na imagem para o Docker Hub
 sudo docker images
-sudo docker tag 1e1c547a4231 vinibfranc/neoprospect:latest
+sudo docker tag <tag_id> vinibfranc/neoprospect:latest
 sudo docker login
 sudo docker push vinibfranc/neoprospecta
 

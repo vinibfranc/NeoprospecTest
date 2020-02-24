@@ -44,11 +44,22 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
 # overwrite this with 'CMD []' in a dependent Dockerfile
-CMD ["/bin/bash"]
-
 RUN apt-get update && apt-get -y --fix-missing install git build-essential ncbi-blast+ gcc \ 
-			software-properties-common curl wget zip unzip make nano \
-			python3 python3-pip fastqc cutadapt pigz libmagick++-dev
+			software-properties-common zip unzip make nano \
+			python3 python3-pip fastqc cutadapt pigz
+RUN apt-get -y install wget curl
+
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+#RUN export PATH=/root/miniconda/bin:$PATH
+ENV PATH=/miniconda/bin:${PATH}
+RUN conda update -y conda
+
+# QIIME2 installation
+RUN wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml && \
+	conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml && \
+	conda install --override-channels -c defaults scikit-learn=0.21.2
 
 RUN useradd -ms /bin/bash neo
 
@@ -72,15 +83,8 @@ RUN curl -fsSL https://github.com/FelixKrueger/TrimGalore/archive/0.6.0.tar.gz -
 	echo 'PATH=$PATH:'$(pwd) >> ~/.bashrc && \
 	cd ..
 
-# conda installation
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-	sh Miniconda3-latest-Linux-x86_64.sh && conda update conda && conda install wget
-
-# QIIME2 installation
-RUN wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml && \
-	conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml && \
-	conda install --override-channels -c defaults scikit-learn=0.21.2
-
 RUN . ~/.bashrc
 
 WORKDIR /home/neo/test/NeoprospecTest
+
+SHELL ["conda", "activate", "qiime2-2019.10", "/bin/bash", "-c"]

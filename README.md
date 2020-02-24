@@ -81,6 +81,9 @@ O script ```qiime2.sh``` irá importar os arquivos fastq que passaram pelo filtr
 Ativamos o conda, onde o QIIME está instaladado:
 
 ```
+$ source ../../../../../miniconda/etc/profile.d/conda.sh
+$ export LC_ALL=C.UTF-8
+$ export LANG=C.UTF-8
 $ conda activate qiime2-2019.10
 ```
 

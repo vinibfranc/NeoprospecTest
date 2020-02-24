@@ -74,7 +74,7 @@ evals <- out.pcoa.logt$values$Eigenvalues
 
 sample_variables(physeq)
 # Plota PCoA das amostras
-plot_ordination(logt, out.pcoa.logt, color="sample")
+plot_ordination(logt, out.pcoa.logt, color="sample.id")
 
 ### ETAPA 2.3: Usar alguma métrica que mostre as bactérias diferencialmente abundantes entre os dias de desmame ###
 BiocManager::install("DESeq2")
