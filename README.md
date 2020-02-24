@@ -63,7 +63,7 @@ Depois, garantimos que o ShellScript responsável pela trimmagem possa ser execu
 $ chmod +x trimming.sh
 ```
 
-Feito isto, rodamos o script ```trimming.sh``` que utiliza o FASTQC para mostrar relatórios antes do controle de qualidade dentro da pasta ```fqs/report_antes```, o trim_galore para trimmar sequências com phred score >= 30 e colocar as sequências que passaram no filtro na pasta ```fqs/fqs_trimmados```, bem como gerar o relatório após a trimmagem na pasta ```fqs/report_depois```.
+Feito isto, rodamos o script ```trimming.sh``` que utiliza o FASTQC para mostrar relatórios antes do controle de qualidade dentro da pasta ```fqs/report_antes```, o trim_galore para manter apenas sequências com phred score >= 30 e colocar as sequências que passaram no filtro na pasta ```fqs/fqs_trimmados```, bem como gerar o relatório após a trimmagem na pasta ```fqs/report_depois```.
 
 ```
 $ ./trimming.sh fqs
