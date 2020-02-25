@@ -27,11 +27,22 @@ Para configurá-lo, vamos realizar as etapas abaixo:
 
 1. Instale o Docker de acordo com as instruções para seu sistema operacional, seguindo a [documentação](https://docs.docker.com/install/).
 
-2. Baixe a imagem do Docker disponibilizada no DockerHub para sua máquina numa pasta de sua preferência:
+2. Baixe a imagem (chamada neoprospecta) do Docker disponibilizada no DockerHub por mim (vinibfranc) para sua máquina:
 
 ```
 $ docker pull vinibfranc/neoprospecta
 ```
+
+<b>Caso tenha algum problema com o procedimento acima</b>, como não ter conta no DockerHub e ser solicitado login, você pode clonar esse repositório para sua máquina, acessar a pasta com o Dockerfile e dar um build na imagem:
+
+```
+$ sudo apt-get install git
+$ git clone https://github.com/vinibfranc/NeoprospecTest
+$ cd NeoprospecTest/docker
+$ docker build -t neoprospecta .
+```
+
+Independente do caminho seguido acima, seja fazendo pull ou dando build na imagem "na mão", siga o passo abaixo para rodar a sua imagem.
 
 3. Rode a imagem do Docker na sua máquina, conforme a documentação para seu sistema operacional. Geralmente, conseguimos fazer isso com o comando abaixo:
 
